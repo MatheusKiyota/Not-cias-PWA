@@ -1,4 +1,4 @@
-//registrando a service worker
+
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', async () => {
     try {
@@ -13,12 +13,13 @@ if ('serviceWorker' in navigator) {
   });
 }
 
-let param = 'AI'
-const apiKey = '4abf7d67ddef4ae3817c6f0f72c44afa';
-let url = `https://newsapi.org/v2/everything?q=${param}&apiKey=${apiKey}`;
-const main = document.querySelector('main');
 
 async function postNews() {
+  let param = document.getElementById("buscar").value
+  const apiKey = '4abf7d67ddef4ae3817c6f0f72c44afa';
+  let url = `https://newsapi.org/v2/everything?q=${param}&apiKey=${apiKey}`;
+  const main = document.querySelector('main');
+
   const res = await fetch(url);
   const data = await res.json();
   console.log(url)
